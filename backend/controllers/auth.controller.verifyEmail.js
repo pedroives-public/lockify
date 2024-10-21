@@ -1,4 +1,5 @@
 import { User } from "../models/user.model.js";
+import { sendWelcomeEmail } from "../mailtrap/utils/sendWelcomeEmail.js";
 
 export const verifyEmail = async (req, res) => {
   const { verificationToken } = req.body;
@@ -20,6 +21,8 @@ export const verifyEmail = async (req, res) => {
     user.verificationTokenExpiresAt = undefined;
 
     await user.save();
+
+    await sendWelcomeEmail(user.email, user.name);
 
     res.status(200).json({
       success: true,
