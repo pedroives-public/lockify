@@ -27,7 +27,7 @@ export const VERIFICATION_EMAIL_TEMPLATE = `
     <table width="100%" cellpadding="0" cellspacing="0" style="margin: 30px 0; background-color: #e0e0e0; border-radius: 8px;">
       <tr>
         <td align="center" style="padding: 20px;">
-          <span style="font-family: Verdana, Geneva, sans-serif; font-size: 36px; font-weight: bold; letter-spacing: 12px; color: #000000;">
+          <span style="font-family: Verdana, Geneva, sans-serif; font-size: 36px; font-weight: bold; letter-spacing: 15px; color: #000000; padding-left: 20px;">
             {verificationCode}
           </span>
         </td>
