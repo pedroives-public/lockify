@@ -6,6 +6,7 @@ import { signup } from "../controllers/auth.controller.signup.js";
 
 import { verifyEmail } from "../controllers/auth.controller.verifyEmail.js";
 import { forgotPassword } from "../controllers/auth.controller.forgotPassword.js";
+import { resetPassword } from "../controllers/auth.controller.resetPassword.js";
 
 const router = express.Router();
 
@@ -15,5 +16,6 @@ router.post("/signup", signup);
 
 router.post("/verify-email", verifyEmail);
 router.post("/forgot-password", forgotPassword);
+router.post("/reset-password/:token", resetPassword);
 
 export default router;
