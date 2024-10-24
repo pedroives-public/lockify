@@ -8,7 +8,7 @@ export const sendResetPasswordEmail = async (email, name, resetLink) => {
     const response = await mailtrapClient.send({
       from: sender,
       to: recipient,
-      subject: "Reset Your Password - Lockify",
+      subject: "Reset Your Password",
       html: RESET_PASSWORD_EMAIL_TEMPLATE.replace(
         "{resetLink}",
         resetLink
