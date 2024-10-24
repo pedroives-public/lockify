@@ -1,5 +1,3 @@
-import bcryptjs from "bcryptjs";
-
 import { User } from "../models/user.model.js";
 import { generateResetPasswordToken } from "../utils/generateResetPasswordToken.js";
 import { sendResetPasswordEmail } from "../mailtrap/utils/sendResetPasswordEmail.js";
