@@ -21,7 +21,7 @@ export const SignUp = () => {
     e.preventDefault();
     try {
       await signup(email, password, name);
-      navigate("/");
+      navigate("/verify-email");
     } catch (error) {
       console.log(error);
     }
