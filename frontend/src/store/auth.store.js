@@ -35,4 +35,42 @@ export const useAuthStore = create((set) => ({
       throw error;
     }
   },
+
+  verifyEmail: async (token) => {
+    set({ isLoading: true, error: null });
+    try {
+      const verificationToken = token.toString().padStart(6, "0");
+
+      const response = await axios.post(
+        `${API_URL}/verify-email`,
+        { verificationToken: verificationToken }, // Adjust this field to match with API backend
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      if (response.data.success) {
+        set({
+          user: response.data.user,
+          isAuthenticated: true,
+          isLoading: false,
+        });
+        ToastSucess.success("Email verified successfully!");
+        return response.data;
+      }
+    } catch (error) {
+      const errorMessage =
+        error.response?.data?.message || "Error verifying email";
+      console.error("Verification error:", errorMessage);
+      ToastError.error(errorMessage);
+      set({
+        error: errorMessage,
+        isLoading: false,
+      });
+      throw error;
+    }
+  },
 }));
